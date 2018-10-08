@@ -39,8 +39,8 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-#     run_test_init()
-#     run_test_append_string()
+    run_test_init()
+    run_test_append_string()
 #     run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
@@ -93,8 +93,15 @@ class Box(object):
           :type contents: str
           :type volume: int
         """
+        self.contents = contents
+        self.volume = volume
+        if len(contents) > volume:
+            self.contents = ''
+
+
+
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # Done: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -134,6 +141,16 @@ class Box(object):
         Type hints:
           :type additional_contents: str
         """
+
+
+        if len(additional_contents) + len(self.contents) <= self.volume:
+            self.contents = self.contents + additional_contents
+            return ''
+        else:
+            self.contents = self.contents + additional_contents[self.volume - len(self.contents)]
+            return additional_contents[len(additional_contents) - self.volume]
+
+
         # --------------------------------------------------------------
         # TODO: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
