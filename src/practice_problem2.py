@@ -57,6 +57,7 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
 
 
+
 def practice_problem2a(sequence, delta):
     """
     What comes in:
@@ -75,6 +76,10 @@ def practice_problem2a(sequence, delta):
       :type sequence: [int]
       :type delta:    int
     """
+    seq = ''
+    for k in range(len(sequence)):
+        seq = seq + sequence[k]+ delta
+    return seq
     ####################################################################
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).

@@ -146,10 +146,9 @@ class Box(object):
         if len(additional_contents) + len(self.contents) <= self.volume:
             self.contents = self.contents + additional_contents
             return ''
-        else:
-            self.contents = self.contents + additional_contents[self.volume - len(self.contents)]
-            return additional_contents[len(additional_contents) - self.volume]
-
+        sub1 = self.volume - len(self.contents)
+        self.contents = self.contents + additional_contents[0:sub1]
+        return additional_contents[sub1:len(additional_contents)]
 
         # --------------------------------------------------------------
         # TODO: 3. Implement and test this function.
@@ -220,6 +219,14 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+       # new = self.contents + self.contents
+
+        #    if len(new) <= self.volume:
+         #       self.contents = self.contents + self.contents
+          #      return ''
+           # else:
+            #    self.contents = self.contents + new[self.volume - len(new)]
+             #   return new[len(new) - self.volume]
 
     def shrink(self, new_volume):
         """
